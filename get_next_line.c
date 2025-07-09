@@ -6,17 +6,17 @@
 /*   By: emustafi <emustafi@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:24:32 by emustafi          #+#    #+#             */
-/*   Updated: 2025/07/09 14:23:58 by emustafi         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:14:13 by emustafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
+# define BUFFER_SIZE 42
 #endif
 
-int	is_newline(char *s)
+static int	is_newline(char *s)
 {
 	if (!s)
 		return (0);
@@ -29,7 +29,7 @@ int	is_newline(char *s)
 	return (0);
 }
 
-char	*append_to_stash(char *stash, char *buf, int num)
+static char	*append_to_stash(char *stash, char *buf, int num)
 {
 	int		stash_len;
 	char	*temp;
@@ -45,7 +45,7 @@ char	*append_to_stash(char *stash, char *buf, int num)
 	return (temp);
 }
 
-char	*create_stash(int fd, char **stash)
+static char	*create_stash(int fd, char **stash)
 {
 	int		num;
 	char	*buf;
@@ -72,7 +72,7 @@ char	*create_stash(int fd, char **stash)
 	return (*stash);
 }
 
-char	*prepare_stash(char *stash, int len)
+static char	*prepare_stash(char *stash, int len)
 {
 	char	*new_stash;
 
